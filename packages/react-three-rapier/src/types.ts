@@ -245,6 +245,10 @@ export type CollisionEnterPayload = {
   flipped: boolean;
   rigidBodyObject?: Object3D;
   colliderObject?: Object3D;
+  thisRigidBody?: RapierRigidBody;
+  thisCollider: RapierCollider;
+  thisRigidBodyObject?: Object3D;
+  thisColliderObject?: Object3D;
 };
 
 export type CollisionExitPayload = {
@@ -252,6 +256,10 @@ export type CollisionExitPayload = {
   collider: RapierCollider;
   rigidBodyObject?: Object3D;
   colliderObject?: Object3D;
+  thisRigidBody?: RapierRigidBody;
+  thisCollider: RapierCollider;
+  thisRigidBodyObject?: Object3D;
+  thisColliderObject?: Object3D;
 };
 
 export type IntersectionEnterPayload = CollisionExitPayload;

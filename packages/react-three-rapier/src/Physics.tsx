@@ -329,7 +329,11 @@ export const Physics: FC<RapierWorldProps> = ({
             colliderObject: collider2State?.object,
             rigidBodyObject: rigidBody2State?.object,
             manifold,
-            flipped
+            flipped,
+            thisRigidBody: rigidBody1,
+            thisCollider: collider1,
+            thisColliderObject: collider1State?.object,
+            thisRigidBodyObject: rigidBody1State?.object,
           });
 
           rigidBody2Events?.onCollisionEnter?.({
@@ -338,7 +342,11 @@ export const Physics: FC<RapierWorldProps> = ({
             colliderObject: collider1State?.object,
             rigidBodyObject: rigidBody1State?.object,
             manifold,
-            flipped
+            flipped,
+            thisRigidBody: rigidBody2,
+            thisCollider: collider2,
+            thisColliderObject: collider2State?.object,
+            thisRigidBodyObject: rigidBody2State?.object,
           });
 
           /* Collider events */
@@ -348,7 +356,11 @@ export const Physics: FC<RapierWorldProps> = ({
             colliderObject: collider2State?.object,
             rigidBodyObject: rigidBody2State?.object,
             manifold,
-            flipped
+            flipped,
+            thisRigidBody: rigidBody1,
+            thisCollider: collider1,
+            thisColliderObject: collider1State?.object,
+            thisRigidBodyObject: rigidBody1State?.object,
           });
 
           collider2Events?.onCollisionEnter?.({
@@ -357,25 +369,37 @@ export const Physics: FC<RapierWorldProps> = ({
             colliderObject: collider1State?.object,
             rigidBodyObject: rigidBody1State?.object,
             manifold,
-            flipped
+            flipped,
+            thisRigidBody: rigidBody2,
+            thisCollider: collider2,
+            thisColliderObject: collider2State?.object,
+            thisRigidBodyObject: rigidBody2State?.object,
           });
         });
       } else {
         rigidBody1Events?.onCollisionExit?.({
           rigidBody: rigidBody2,
-          collider: collider2
+          collider: collider2,
+          thisRigidBody: rigidBody1,
+          thisCollider: collider1
         });
         rigidBody2Events?.onCollisionExit?.({
           rigidBody: rigidBody1,
-          collider: collider1
+          collider: collider1,
+          thisRigidBody: rigidBody2,
+          thisCollider: collider2,
         });
         collider1Events?.onCollisionExit?.({
           rigidBody: rigidBody2,
-          collider: collider2
+          collider: collider2,
+          thisRigidBody: rigidBody1,
+          thisCollider: collider1
         });
         collider2Events?.onCollisionExit?.({
           rigidBody: rigidBody1,
-          collider: collider1
+          collider: collider1,
+          thisRigidBody: rigidBody2,
+          thisCollider: collider2,
         });
       }
 
@@ -386,46 +410,70 @@ export const Physics: FC<RapierWorldProps> = ({
             rigidBody: rigidBody2,
             collider: collider2,
             colliderObject: collider2State?.object,
-            rigidBodyObject: rigidBody2State?.object
+            rigidBodyObject: rigidBody2State?.object,
+            thisRigidBody: rigidBody1,
+            thisCollider: collider1,
+            thisColliderObject: collider1State?.object,
+            thisRigidBodyObject: rigidBody1State?.object,
           });
 
           rigidBody2Events?.onIntersectionEnter?.({
             rigidBody: rigidBody1,
             collider: collider1,
             colliderObject: collider1State?.object,
-            rigidBodyObject: rigidBody1State?.object
+            rigidBodyObject: rigidBody1State?.object,
+            thisRigidBody: rigidBody2,
+            thisCollider: collider2,
+            thisColliderObject: collider2State?.object,
+            thisRigidBodyObject: rigidBody2State?.object,
           });
 
           collider1Events?.onIntersectionEnter?.({
             rigidBody: rigidBody2,
             collider: collider2,
             colliderObject: collider2State?.object,
-            rigidBodyObject: rigidBody2State?.object
+            rigidBodyObject: rigidBody2State?.object,
+            thisRigidBody: rigidBody1,
+            thisCollider: collider1,
+            thisColliderObject: collider1State?.object,
+            thisRigidBodyObject: rigidBody1State?.object,
           });
 
           collider2Events?.onIntersectionEnter?.({
             rigidBody: rigidBody1,
             collider: collider1,
             colliderObject: collider1State?.object,
-            rigidBodyObject: rigidBody1State?.object
+            rigidBodyObject: rigidBody1State?.object,
+            thisRigidBody: rigidBody2,
+            thisCollider: collider2,
+            thisColliderObject: collider2State?.object,
+            thisRigidBodyObject: rigidBody2State?.object,
           });
         }
       } else {
         rigidBody1Events?.onIntersectionExit?.({
           rigidBody: rigidBody2,
-          collider: collider2
+          collider: collider2,
+          thisRigidBody: rigidBody1,
+          thisCollider: collider1,
         });
         rigidBody2Events?.onIntersectionExit?.({
           rigidBody: rigidBody1,
-          collider: collider1
+          collider: collider1,
+          thisRigidBody: rigidBody2,
+          thisCollider: collider2,
         });
         collider1Events?.onIntersectionExit?.({
           rigidBody: rigidBody2,
-          collider: collider2
+          collider: collider2,
+          thisRigidBody: rigidBody1,
+          thisCollider: collider1,
         });
         collider2Events?.onIntersectionExit?.({
           rigidBody: rigidBody1,
-          collider: collider1
+          collider: collider1,
+          thisRigidBody: rigidBody2,
+          thisCollider: collider2,
         });
       }
     });
